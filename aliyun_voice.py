@@ -93,9 +93,6 @@ class AliyunVoice():
             print('Result: Failed.\nmessage:\n{0}'.format(r.text))
 
         print(request_url)
-
-    def help():
-        pass
         
 def main():
     CalledNumber = 'xxxxxxxxxxx'
