@@ -5,6 +5,8 @@
   基于事先定义好的语音模板发送语音通知。
   
 ## 运行方式
+修改main函数中的以下几个参数，然后在命令行运行即可。如果需要放到程序中，根据需求修改即可。
+def main():
     CalledNumber = 'xxxxxxxxxxx'
     CalledShowNumber = 'xxxxxxxxxxxx' 
     AccessKey = 'xxxx'
