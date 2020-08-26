@@ -83,16 +83,9 @@ class AliyunVoice():
         request_url = self.__url + '?' + 'CalledNumber=' + self.__CalledNumber + '&CalledShowNumber=' + self.__CalledShowNumber + '&TtsCode=' + self.__TtsCode + '&Format=' + self.__Format + '&' + self.__sign_string + '&Signature=' + self.__Signature
     
         r = requests.get(request_url) 
-        if r.status_code == 200:
-            result= eval(r.text)
-            if result['Message'] == 'OK':
-                print('Result: Successful.\nmessage:{0}'.format(result))
-            else:
-                print('Result: Failed.\nmessage:\n{0}'.format(r.text))
-        else:
-            print('Result: Failed.\nmessage:\n{0}'.format(r.text))
+ 
+        return r
 
-        print(request_url)
         
 def main():
     CalledNumber = 'xxxxxxxxxxx'
@@ -104,7 +97,8 @@ def main():
 
     aliyun_voice = AliyunVoice()
     aliyun_voice.set_config(AccessKey, Secert, CalledNumber, CalledShowNumber, TtsCode, content)
-    aliyun_voice.call_voice()
+    result = aliyun_voice.call_voice()
+    print(result.text)
 
 if __name__ == '__main__':
     main()
